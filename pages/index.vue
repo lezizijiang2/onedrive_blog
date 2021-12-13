@@ -80,16 +80,8 @@ export default {
         axios.get('/api/index')
         .then(async (response) => {
             if (!isBlogSettings()) {
-                await axios.get(response.data.settingsUrl)
-                .then((response) => {
-                    getSettings(response.data)
-                })
-                .catch((error) => {
-                    getStatusCode(error.response.status)
-                })
-                .finally(() => {
-                    stopLoading(1)
-                })
+                getSettings(response.data.settings)
+                stopLoading(1)
             } else {
                 stopLoading(1)
             }

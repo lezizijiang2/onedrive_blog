@@ -6,7 +6,7 @@ import { IncomingMessage, ServerResponse } from 'http'
 export default async (_req: IncomingMessage, res: ServerResponse) => {
     const result = {
         article: [],
-        settingsUrl: ''
+        settings: null
     }
 
     const accessToken = await getAccessToken(false)
@@ -33,7 +33,11 @@ export default async (_req: IncomingMessage, res: ServerResponse) => {
 
     for (const articleCacheElement of articleCache) {
         if (articleCacheElement.name === 'settings.json' || articleCacheElement.name === 'Settings.json') {
-            result.settingsUrl = articleCacheElement['@microsoft.graph.downloadUrl']
+            var settingsUrl = articleCacheElement['@microsoft.graph.downloadUrl']
+            await axios.get(settingsUrl)
+                .then((response) => {
+                    result.settings = response.data
+                })
             continue
         }
         result.article.push({
