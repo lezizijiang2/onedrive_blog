@@ -80,6 +80,11 @@ export default async (req: IncomingMessage, res: ServerResponse) => {
         const temp = itemsCache.find(item => item.name === fi)
         if (temp !== undefined) {
             result.contentUrl = temp['@microsoft.graph.downloadUrl']
+            axios.get(result.contentUrl)
+                    .then((contentResponse) => {
+                        result.content = contentResponse.data
+                    })
+            result.contentUrl = ‘’
             result.contentType = fi.split('.')[1]
             return result
         }
