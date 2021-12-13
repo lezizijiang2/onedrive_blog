@@ -109,7 +109,7 @@ export default {
                 if (!response.data.password) {
                     noNeedPassword()
                     getSettings(response.data.settings)
-                    if (response.data.contentUrl === '') {
+                    if (response.data.content === '') {
                         getContent('文件缺失，请等待同步')
                         stopLoading(1)
                         return
