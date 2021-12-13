@@ -114,17 +114,9 @@ export default {
                         stopLoading(1)
                         return
                     }
-                    axios.get(response.data.contentUrl)
-                    .then((contentResponse) => {
-                        getContent(contentResponse.data)
-                        getContentType(response.data.contentType)
-                    })
-                    .catch((contentError) => {
-                        getStatusCode(contentError.response.status)
-                    })
-                    .finally(() => {
-                        stopLoading(1)
-                    })
+                    getContent(response.data.content)
+                    getContentType(response.data.contentType)
+                    stopLoading(1)
                 } else {
                     stopLoading(1)
                     needPassword()
