@@ -1,12 +1,12 @@
 import axios from 'axios'
 import config from '#config'
-import getAccessToken from '~/server/getAccessToken'
+import getAccessToken from 'server/getAccessToken'
 import { IncomingMessage, ServerResponse } from 'http'
 import { URLSearchParams } from 'url'
 
 export default async (req: IncomingMessage, res: ServerResponse) => {
     const result = {
-        contentUrl: '',
+        content: '',
         contentType: '',
         settings: {},
         password: false
@@ -79,12 +79,11 @@ export default async (req: IncomingMessage, res: ServerResponse) => {
     for (const fi of fileIndex) {
         const temp = itemsCache.find(item => item.name === fi)
         if (temp !== undefined) {
-            result.contentUrl = temp['@microsoft.graph.downloadUrl']
-            axios.get(result.contentUrl)
+            var contentUrl = temp['@microsoft.graph.downloadUrl']
+            axios.get(contentUrl)
                     .then((contentResponse) => {
                         result.content = contentResponse.data
                     })
-            result.contentUrl = ''
             result.contentType = fi.split('.')[1]
             return result
         }

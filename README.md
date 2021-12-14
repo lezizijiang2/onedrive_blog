@@ -41,7 +41,7 @@ export default defineNuxtConfig({
 ```
 
 **注意：**
-* 请自己获取OneDrive的Token，暂时不支持世纪互联（我还没有找API）。获取教程来自网络：[链接](https://blog.imzjw.cn/posts/cf-onedrive/) ，获取`client_id`、`client_secret`以及`refresh_token`，如果按照网络教程，在获取`refresh_token`时出错，可以在本地（需要`Nodejs`环境）下执行`npx @beetcb/ms-graph-cli`，按步骤获取；
+* 请自己获取OneDrive的Token，暂时不支持世纪互联（我还没有找API）。[获取教程](https://blog.imzjw.cn/posts/cf-onedrive/) 来自网络，获取`client_id`、`client_secret`以及`refresh_token`，如果按照网络教程，在获取`refresh_token`时出错，可以在本地（需要`Nodejs`环境）下执行`npx @beetcb/ms-graph-cli`，按步骤获取；
 * 目录格式为`/Dir1/Dir2/Dir3`，项目内没有其它特殊处理，所以格式错误可能会导致访问出错。
 
 ### 3. 部署至Vercel
