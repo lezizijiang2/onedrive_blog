@@ -103,7 +103,6 @@
 
 .markdown-body img {
     max-width: 100%;
-    box-sizing: content-box;
     border-width: 3px;
     border-radius: 0.5rem;
     --tw-border-opacity: 1;
