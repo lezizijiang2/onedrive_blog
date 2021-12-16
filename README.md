@@ -101,4 +101,4 @@ export default defineNuxtConfig({
 
 关于为什么要做这个项目呢？都用上Vercel了，为什么不直接上Hexo呢？emm因为我想自己做点东西，调用一下微软的API，至于为什么要**调用**微软的API，懂的都懂，不懂的可以直接去用Hexo了，这才是真的博客引擎。
 
-Markdown样式来自`Github-markdown-css`，但是为了兼容深色模式所以不得不保存到项目并修改了一小部分。感谢`Github-markdown-css`
+Markdown样式来自(Github-markdown-css)[sindresorhus/github-markdown-css]，但是为了兼容深色模式所以不得不保存到项目并修改了一小部分。感谢`Github-markdown-css`
